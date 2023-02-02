@@ -21,15 +21,15 @@ days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 
 def year_url(year):
-	if year > 1956 and year < 2015:
+	if year > 1956 and year <= 2016:
 		return 'dst_final'
-	elif year < 2020:
+	elif year <= 2021:
 		return 'dst_provisional'
 	else:
 		return 'dst_realtime'
 
 
-def download(year):
+def download(year, downloadDir):
 
     dst = {}
     y = year
@@ -38,8 +38,10 @@ def download(year):
     dst[y] = {}
     for m in range(1, NUM_MONTHS+1):
         print(m)
-        month = "{0:0=2d}".format(m)
-        month_url = website + year_url(y)+ '/' + str(y) + month + '/index.html'
+        month = "{0:02d}".format(m)
+        dataType=year_url(y)
+        print(dataType)
+        month_url = website + dataType+ '/' + str(y) + month + '/index.html'
         print(month_url)
         r = requests.get(month_url)
         table_start = r.content.find(table_start_str.encode()) + len(table_start_str)
@@ -71,12 +73,12 @@ def download(year):
                 dayHr = datetime.datetime(y,m,d+1) + datetime.timedelta(hours=h+1)
                 ldf.loc[dayHr,'dst'] = int(dst[y][m][d][h])
 
-    ldf.to_csv(f'dstIndex{y}.csv')
+    ldf.to_csv(f'{downloadDir}dstIndex{y}.csv')
     return ldf
 
 
 #%%
 if __name__ == '__main__':
-	dst = download(2017)
+	dst = download(1995, downloadDir='./data/')
 	# json2csv()
 # %%
