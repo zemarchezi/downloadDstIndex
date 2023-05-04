@@ -79,6 +79,6 @@ def download(year, downloadDir):
 
 #%%
 if __name__ == '__main__':
-	dst = download(1995, downloadDir='./data/')
+	dst = download(2022, downloadDir='./')
 	# json2csv()
 # %%
