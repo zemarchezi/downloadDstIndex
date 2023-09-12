@@ -19,7 +19,7 @@ setup(
     author='Jose Paulo Marchezi',
     author_email='jpmarchezi@gmail.com',
     license='GPL-3.0 license',
-    classifiers=['Development Status :: Alpha',
+    classifiers=['Development Status :: 3 - Alpha',
                  'Intended Audience :: Science/Research',
                  'Topic :: Scientific/Engineering',
                  'License :: OSI Approved :: GNU General Public License (GPL)',
