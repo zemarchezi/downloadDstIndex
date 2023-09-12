@@ -6,8 +6,9 @@ try:
   with open(VERSION_PATH, "r") as version_file:
     VERSION = version_file.read().strip()
 except:
-  from version import *
-  VERSION = version()
+  import importlib.metadata
+  VERSION = importlib.metadata.version('dstdownloader')
+
 
 __version__ = VERSION
 __license__ = "GPL-3.0 license"
