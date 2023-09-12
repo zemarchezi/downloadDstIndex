@@ -8,7 +8,10 @@ from codecs import open
 
 setup(
     name='dstdownloader',
-    version='1.0.0',
+    setuptools_git_versioning={
+        "enabled": True,
+    },
+    setup_requires=["setuptools-git-versioning<2"],
     description='Download Dst Index data from Kyoto WDC',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
