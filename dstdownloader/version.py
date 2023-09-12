@@ -10,6 +10,6 @@ def version():
     None.
 
     """
-    import pkg_resources
-    ver = pkg_resources.get_distribution("dstdownloader").version
+    import importlib.metadata
+    ver = importlib.metadata.version('dstdownloader')
     print("dstdownloader version: " + ver)
