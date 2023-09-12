@@ -27,7 +27,7 @@ setup(
                  ],
     keywords='satellite space data tools',
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
-    install_requires=['requests', 'pandas', 'datetime', 'calendar'],
+    install_requires=['requests', 'pandas', 'calendar'],
     python_requires='>=3.8',
     include_package_data=True,
 )
